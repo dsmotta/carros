@@ -20,6 +20,10 @@ class Car(models.Model):
    
     def __str__(self):
         return self.model
+
+    def delete(self, *args, **kwargs):
+        self.photo.delete(save=False)
+        super().delete(*args, **kwargs)
     
 
 class CarInventory(models.Model):
